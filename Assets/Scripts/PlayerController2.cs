@@ -17,7 +17,9 @@ public class PlayerController2 : MonoBehaviour
     public GameObject PlayAgain;
     public GameObject NextLevel;
     public AudioClip alarm;
+    public AudioClip smash;
     private AudioSource source;
+    private AudioSource source1;
     private GameObject[] pickups2;
 
     void Start()
@@ -32,6 +34,7 @@ public class PlayerController2 : MonoBehaviour
         winText.text = "";
         endMenuUI.SetActive(false);
         source = GetComponent<AudioSource>();
+        source1 = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -97,7 +100,7 @@ public class PlayerController2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PickUp2"))
         {
-            source.PlayOneShot(alarm);
+            source1.PlayOneShot(smash);
             score = score - 5;
             SetScoreText();
         }
